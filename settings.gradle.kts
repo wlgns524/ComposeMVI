@@ -24,4 +24,3 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 rootProject.name = "ComposeMVI"
 include(":app")
 include(":core")
-include(":domain")

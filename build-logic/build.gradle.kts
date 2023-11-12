@@ -27,35 +27,35 @@ gradlePlugin {
     plugins {
         register("androidApplicationCompose") {
             id = "com.kotlin.compose_mvi.android.application.compose"
-            implementationClass = "AndroidApplicationComposeConventionPlugin"
+            implementationClass = "AndroidApplicationComposePlugin"
         }
         register("androidApplication") {
             id = "com.kotlin.compose_mvi.android.application"
-            implementationClass = "AndroidApplicationConventionPlugin"
+            implementationClass = "AndroidApplicationPlugin"
         }
         register("androidFirebase") {
             id = "com.kotlin.compose_mvi.android.firebase"
-            implementationClass = "AndroidFirebaseConventionPlugin"
+            implementationClass = "AndroidFirebasePlugin"
         }
         register("androidHilt") {
             id = "com.kotlin.compose_mvi.android.hilt"
-            implementationClass = "AndroidHiltConventionPlugin"
+            implementationClass = "AndroidHiltPlugin"
         }
         register("androidLibraryCompose") {
             id = "com.kotlin.compose_mvi.android.library.compose"
-            implementationClass = "AndroidLibraryComposeConventionPlugin"
+            implementationClass = "AndroidLibraryComposePlugin"
         }
         register("androidLibrary") {
             id = "com.kotlin.compose_mvi.android.library"
-            implementationClass = "AndroidLibraryConventionPlugin"
+            implementationClass = "AndroidLibraryPlugin"
         }
         register("androidNavigation") {
             id = "com.kotlin.compose_mvi.android.navigation"
-            implementationClass = "AndroidNavigationConventionPlugin"
+            implementationClass = "AndroidNavigationPlugin"
         }
         register("jvmLibrary") {
             id = "com.kotlin.compose_mvi.jvm.library"
-            implementationClass = "JvmLibraryConventionPlugin"
+            implementationClass = "JvmLibraryPlugin"
         }
     }
 }

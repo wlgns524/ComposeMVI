@@ -2,7 +2,7 @@ import com.kotlin.compose_mvi.configureKotlinJvm
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
-class JvmLibraryConventionPlugin : Plugin<Project> {
+class JvmLibraryPlugin : Plugin<Project> {
 
     override fun apply(target: Project) {
         with(target) {
