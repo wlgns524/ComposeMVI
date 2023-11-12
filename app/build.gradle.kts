@@ -1,48 +1,39 @@
-@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
-    alias(libs.plugins.com.android.application)
-    alias(libs.plugins.org.jetbrains.kotlin.android)
+    id("com.kotlin.compose_mvi.android.application")
+    id("com.kotlin.compose_mvi.android.application.compose")
+    id("com.kotlin.compose_mvi.android.hilt")
+    id("com.kotlin.compose_mvi.android.navigation")
+    id("kotlin-parcelize")
 }
 
 android {
     namespace = "com.kotlin.compose_mvi"
-    compileSdk = 33
-
     defaultConfig {
         applicationId = "com.kotlin.compose_mvi"
-        minSdk = 24
-        targetSdk = 33
         versionCode = 1
-        versionName = "1.0"
+        versionName = "1.0.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
     }
 
+
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isDebuggable = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
     buildFeatures {
         compose = true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
-    }
+
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -51,20 +42,47 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.activity.compose)
 
-    implementation(libs.core.ktx)
-    implementation(libs.lifecycle.runtime.ktx)
-    implementation(libs.activity.compose)
-    implementation(platform(libs.compose.bom))
-    implementation(libs.ui)
-    implementation(libs.ui.graphics)
-    implementation(libs.ui.tooling.preview)
-    implementation(libs.material3)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.espresso.core)
-    androidTestImplementation(platform(libs.compose.bom))
-    androidTestImplementation(libs.ui.test.junit4)
-    debugImplementation(libs.ui.tooling)
-    debugImplementation(libs.ui.test.manifest)
+    implementation(libs.androidx.hilt.navigation.compose)
+    api(libs.androidx.compose.ui)
+    api(libs.androidx.compose.ui.tooling.preview)
+    api(libs.androidx.compose.foundation)
+    api(libs.androidx.compose.material)
+    api(libs.androidx.compose.material3)
+
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.constraintlayout.compose)
+
+//    implementation(libs.androidx.lifecycle.common.java8)
+//    implementation(libs.androidx.lifecycle.precess)
+//    implementation(libs.androidx.lifecycle.runtime.compose)
+//    implementation(libs.androidx.lifecycle.runtime.ktx)
+//    implementation(libs.androidx.lifecycle.service)
+//    implementation(libs.androidx.lifecycle.viewmodel.compose)
+//    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+//    implementation(libs.androidx.lifecycle.viewmodel.savedstate)
+
+
+//    implementation(libs.kotlinx.coroutines.android)
+//    implementation(libs.kotlinx.datetime)
+//    implementation(libs.kotlinx.immutable)
+
+//    implementation(libs.core.ktx)
+//    implementation(libs.projects.core.navigation)
+//    implementation(libs.lifecycle.runtime.ktx)
+//    implementation(libs.activity.compose)
+//    implementation(platform(libs.compose.bom))
+//    implementation(libs.ui)
+//    implementation(libs.ui.graphics)
+//    implementation(libs.ui.tooling.preview)
+//    implementation(libs.material3)
+//    testImplementation(libs.junit)
+//    androidTestImplementation(libs.androidx.test.ext.junit)
+//    androidTestImplementation(libs.espresso.core)
+//    androidTestImplementation(platform(libs.compose.bom))
+//    androidTestImplementation(libs.ui.test.junit4)
+//    debugImplementation(libs.ui.tooling)
+//    debugImplementation(libs.ui.test.manifest)
 }
